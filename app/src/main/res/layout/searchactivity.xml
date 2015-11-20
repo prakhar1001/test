@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/Search_ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="77dp"
+            android:background="@drawable/ic_search"
+            android:contentDescription="@string/search_image_button" />
+
+        <EditText
+            android:id="@+id/Search_text_activity"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Search_Statement"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.90"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/Search_Contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="false"
+            android:editable="true"
+            android:elegantTextHeight="false"
+            android:ems="10"
+            android:hint="@string/Search_Contact"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+        <ListView
+            android:id="@+id/search_Contact_List"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.44" />
+
+        <Button
+            android:id="@+id/Search_Group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="true"
+            android:editable="true"
+            android:ems="10"
+            android:hint="@string/Search_Group"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+        <ListView
+            android:id="@+id/search_Group_List"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.44" />
+
+        <Button
+            android:id="@+id/AddtoContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="true"
+            android:editable="true"
+            android:ems="10"
+            android:hint="@string/AddtoContact"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/AddtoGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="true"
+            android:editable="true"
+            android:ems="10"
+            android:hint="@string/AddtoGroup"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

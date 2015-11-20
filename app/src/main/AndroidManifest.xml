@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="prakhar1001.com.contactmanager_optimustest17nov">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ContactFragment.AddContactActivity"
+            android:label="Add Contact"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".GroupFragment.AddGroupActivity"
+            android:label="Add Group"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".GroupFragment.DisplayGroupInfoActivity"
+            android:label="Display Group info"></activity>
+        <activity
+            android:name=".ContactFragment.DisplayContactInfoActivity"
+            android:label="Display Contact Info"></activity>
+        <activity
+            android:name=".SearchActivity.SearchActivity"
+            android:label="Search Functionality"></activity>
+        <activity
+            android:name=".GroupFragment.EditGroupInfoActivity"
+            android:label="Edit Group info"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ContactFragment.EditContactInfoActivity"
+            android:label="Edit Contact Info"
+            android:screenOrientation="portrait">        </activity>
+    </application>
+
+</manifest>
