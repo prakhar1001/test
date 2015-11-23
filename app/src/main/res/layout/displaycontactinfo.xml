@@ -134,6 +134,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/Displaygroupstring"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -141,8 +142,18 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimaryDark" />
 
+            <TextView
+                android:id="@+id/NotextFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_below="@+id/Displaygroupstring"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="No Entry Found"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/added_group_listView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

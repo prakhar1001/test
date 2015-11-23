@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ContactDatabasehandler extends SQLiteOpenHelper {
 
-    public static final String DataBase_Name = "ContactManager_contact.db";
+    public static final String DataBase_Name = "ContactManager.db";
 
     public static final String Table_Name = "Contact_Info";
     public static final String First_Name = "First_Name";
@@ -179,5 +179,21 @@ public class ContactDatabasehandler extends SQLiteOpenHelper {
         int result = database_ob.update(Table_Name, contentValues, Contact_Id + "=" + contact_id, null);
         Close();
         return result;
+    }
+
+    public List<ParceableContactInfo> FindById(int contact_id) throws SQLException {
+        database_ob = this.getReadableDatabase();
+        Cursor mCursor = null;
+
+        mCursor = database_ob.query(Table_Name, cols,
+                Contact_Id + "=" + contact_id, null, null, null, null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        contactInfoArrayList = populateArrayList(mCursor);
+
+        Close();
+        return contactInfoArrayList;
     }
 }

@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import prakhar1001.com.contactmanager_optimustest17nov.GroupFragment.GroupDatabaseAdapter;
+import prakhar1001.com.contactmanager_optimustest17nov.GroupFragment.GroupDatabasehandler;
 import prakhar1001.com.contactmanager_optimustest17nov.GroupFragment.ParceableGroupInfo;
 import prakhar1001.com.contactmanager_optimustest17nov.R;
 
@@ -80,6 +81,7 @@ public class EditContactInfoActivity extends Activity {
 
 
         Group_Photo = (ImageView) findViewById(R.id.ImageContact);
+
         ListView ContactListView = (ListView) findViewById(R.id.grouplistview);
 
 

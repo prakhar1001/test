@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
     android:padding="6dip">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="@dimen/Image_Dimension"
         android:layout_height="@dimen/Image_Dimension">
 
@@ -14,7 +16,7 @@
             android:id="@+id/Contact_Image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/Content_Description_Image_Contact"/>
+            android:contentDescription="@string/Content_Description_Image_Contact" />
 
     </LinearLayout>
 
@@ -26,12 +28,21 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/Contact_Id"
+            android:text="@string/Group_Id"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -51,7 +62,6 @@
             android:layout_below="@+id/textView2"
             android:text="@string/Description"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
 
 
         <TextView
@@ -78,5 +88,36 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
+        <ImageButton
+            android:id="@+id/add_contact_imagebutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/edit_group_info_imagebutton"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/edit_group_info_imagebutton"
+            android:layout_toStartOf="@+id/edit_group_info_imagebutton"
+            android:background="@drawable/ic_add"
+            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <ImageButton
+            android:id="@+id/edit_group_info_imagebutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/relativeLayout"
+            android:background="@drawable/ic_edit"
+            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+    </LinearLayout>
 </RelativeLayout>

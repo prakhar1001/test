@@ -95,36 +95,34 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="110dp"
-        android:layout_height="60dp"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal">
 
+
         <ImageButton
-            android:id="@+id/is_favourite_imagebutton"
-            android:layout_width="50dp"
+            android:id="@+id/remove_from_group_imagebutton"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:contentDescription="@string/Content_Description_IsFavourite_ImageButton"
+            android:background="@drawable/ic_thumb_down"
+            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
             android:focusable="false"
             android:focusableInTouchMode="false" />
+
 
         <ImageButton
             android:id="@+id/add_to_group_imagebutton"
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_add"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+
+            android:background="@drawable/ic_thumb_up"
             android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
             android:focusable="false"
             android:focusableInTouchMode="false" />
 
-        <ImageButton
-            android:id="@+id/edit_contact_info_imagebutton"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_edit"
-            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
-            android:focusable="false"
-            android:focusableInTouchMode="false" />
+
     </LinearLayout>
 </RelativeLayout>

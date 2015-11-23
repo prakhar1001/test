@@ -125,12 +125,23 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/Displaycontactstring"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:text="@string/DisplayConcernedContacts"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/NotextFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:visibility="visible"
+                android:layout_below="@+id/Displaycontactstring"
+                android:text="No Entry Found"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <ListView
                 android:id="@+id/listView"

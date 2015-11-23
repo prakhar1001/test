@@ -10,14 +10,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import prakhar1001.com.contactmanager_optimustest17nov.GroupFragment.ParceableGroupInfo;
-
 /**
  * Created by Prakhar1001 on 11/19/2015.
  */
 public class GroupDatabasehandler extends SQLiteOpenHelper {
 
-    public static final String DataBase_Name = "ContactManager_group.db";
+    public static final String DataBase_Name = "ContactManager.db";
 
     public static final String Table_Name = "Group_Info";
     public static final String Group_Name = "Group_Name";
@@ -27,7 +25,7 @@ public class GroupDatabasehandler extends SQLiteOpenHelper {
 
     List<ParceableGroupInfo> groupInfoArrayList = new ArrayList<ParceableGroupInfo>();
 
-    public static final int DataBase_Version = 2;
+    public static final int DataBase_Version = 1;
 
     private final Context context;
     SQLiteDatabase database_ob;
@@ -61,20 +59,36 @@ public class GroupDatabasehandler extends SQLiteOpenHelper {
         database_ob.close();
     }
 
+    boolean isTableExists(SQLiteDatabase db, String tableName) {
+        if (tableName == null || db == null || !db.isOpen()) {
+            return false;
+        }
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM sqlite_master WHERE type = ? AND name = ?", new String[]{"table", tableName});
+        if (!cursor.moveToFirst()) {
+            return false;
+        }
+        int count = cursor.getInt(0);
+        cursor.close();
+        return count > 0;
+    }
 
     public List<ParceableGroupInfo> SortByName() throws SQLException {
 
         database_ob = this.getReadableDatabase();
         Cursor mCursor = null;
-
-        mCursor = database_ob.query(Table_Name, cols,
-                null, null, null, null, null);
-
+        if (isTableExists(database_ob, Table_Name)) {
+            mCursor = database_ob.query(Table_Name, cols,
+                    null, null, null, null, null);
+        }else
+        {
+            onCreate(database_ob);
+        }
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
-        groupInfoArrayList = populateArrayList(mCursor);
-
+        if (mCursor != null) {
+            groupInfoArrayList = populateArrayList(mCursor);
+        }
         Close();
         return groupInfoArrayList;
     }
@@ -121,7 +135,7 @@ public class GroupDatabasehandler extends SQLiteOpenHelper {
         Cursor mCursor = null;
         if (inputText == null || inputText.length() == 0) {
 
-          //  Toast.makeText(context, "No Query Typed,please Type Something..", Toast.LENGTH_LONG).show();
+            //  Toast.makeText(context, "No Query Typed,please Type Something..", Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -150,6 +164,23 @@ public class GroupDatabasehandler extends SQLiteOpenHelper {
         int result = database_ob.update(Table_Name, contentValues, Contact_Id + "=" + contact_id, null);
         Close();
         return result;
+    }
+
+
+    public List<ParceableGroupInfo> FindById(int contact_id) throws SQLException {
+        database_ob = this.getReadableDatabase();
+        Cursor mCursor = null;
+
+        mCursor = database_ob.query(Table_Name, cols,
+                Contact_Id + "=" + contact_id, null, null, null, null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        groupInfoArrayList = populateArrayList(mCursor);
+
+        Close();
+        return groupInfoArrayList;
     }
 }
 

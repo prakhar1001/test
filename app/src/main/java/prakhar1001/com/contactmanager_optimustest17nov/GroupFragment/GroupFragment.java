@@ -33,13 +33,15 @@ public class GroupFragment extends Fragment {
 
         } else {
             GroupDatabasehandler groupDatabasehandler = new GroupDatabasehandler(getActivity());
+
             groupInfoArrayList = (ArrayList<ParceableGroupInfo>) groupDatabasehandler.SortByName();
         }
 
-        GroupDatabaseAdapter groupDatabaseAdapter = new GroupDatabaseAdapter(getActivity(),
-                R.layout.grouplistlayout, groupInfoArrayList);
-        groupList.setAdapter(groupDatabaseAdapter);
-
+        if (groupInfoArrayList.size() > 0) {
+            GroupDatabaseAdapter groupDatabaseAdapter = new GroupDatabaseAdapter(getActivity(),
+                    R.layout.grouplistlayout, groupInfoArrayList);
+            groupList.setAdapter(groupDatabaseAdapter);
+        }
 
 
         FloatingActionButton myFab = (FloatingActionButton) view.findViewById(R.id.fab);

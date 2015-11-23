@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,12 +20,12 @@ import prakhar1001.com.contactmanager_optimustest17nov.R;
 public class ContactFragment extends Fragment {
 
     ArrayList<ParceableContactInfo> contactInfoArrayList = new ArrayList<ParceableContactInfo>();
-    ListView contactList;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.contactfragment, container, false);
-        contactList = (ListView) view.findViewById(R.id.contactlist);
+        ListView contactList = (ListView) view.findViewById(R.id.contactlist);
 
 
         if (savedInstanceState != null) {
@@ -45,8 +44,6 @@ public class ContactFragment extends Fragment {
                                                @Override
                                                public void onItemClick(AdapterView<?> parent, View view,
                                                                        int position, long id) {
-
-                                                   Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
                                                    Intent i = new Intent(getActivity(), DisplayContactInfoActivity.class);
                                                    i.putExtra("Contact_id", contactInfoArrayList.get(position).getId());
                                                    i.putExtra("First_Name", contactInfoArrayList.get(position).getFirst_Name());
@@ -78,4 +75,5 @@ public class ContactFragment extends Fragment {
         outState.putParcelableArrayList("contactInfoArrayList", contactInfoArrayList);
         super.onSaveInstanceState(outState);
     }
+
 }

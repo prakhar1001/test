@@ -2,12 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:descendantFocusability="blocksDescendants"
     android:layout_marginBottom="8dp"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
     android:padding="6dip">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="@dimen/Image_Dimension"
         android:layout_height="@dimen/Image_Dimension">
 
@@ -15,11 +16,10 @@
             android:id="@+id/Contact_Image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:contentDescription="@string/Content_Description_Image_Contact" />
 
     </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -29,12 +29,21 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/Contact_Id"
+            android:text="@string/Group_Id"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -43,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
-            android:text="@string/First_Name"
+            android:text="@string/Group_Name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -52,17 +61,9 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView2"
             android:layout_below="@+id/textView2"
-            android:text="@string/Last_Name"
+            android:text="@string/Description"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_below="@+id/textView3"
-            android:text="@string/Phone_Number"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/contact_id"
@@ -72,59 +73,46 @@
             android:layout_toRightOf="@+id/textView1" />
 
         <TextView
-            android:id="@+id/first_name"
+            android:id="@+id/group_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView2"
             android:layout_toRightOf="@+id/textView2" />
 
         <TextView
-            android:id="@+id/last_name"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView3"
             android:layout_toRightOf="@+id/textView3" />
 
-        <TextView
-            android:id="@+id/phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView4"
-            android:layout_toRightOf="@+id/textView4" />
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
+            <ImageButton
+                android:id="@+id/remove_from_group_imagebutton"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_thumb_down"
+                android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+            <ImageButton
+                android:id="@+id/add_to_group_imagebutton"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:background="@drawable/ic_thumb_up"
+                android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+        </LinearLayout>
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/is_favourite_imagebutton"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/Content_Description_IsFavourite_ImageButton"
-            android:focusable="false"
-            android:focusableInTouchMode="false" />
-
-        <ImageButton
-            android:id="@+id/add_to_group_imagebutton"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_add"
-            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
-            android:focusable="false"
-            android:focusableInTouchMode="false" />
-
-        <ImageButton
-            android:id="@+id/edit_contact_info_imagebutton"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_edit"
-            android:contentDescription="@string/Content_Description_AddtoGroup_ImageButton"
-            android:focusable="false"
-            android:focusableInTouchMode="false" />
-    </LinearLayout>
 </RelativeLayout>
